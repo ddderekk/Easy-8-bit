@@ -25,6 +25,11 @@ button{
   border: 2px solid black;
 }
 
+.eraserButton{
+  border-style: dotted;
+}
+
+
 
 .activeColor{
   border: 2px solid black;
@@ -44,7 +49,13 @@ button{
   margin-bottom: 20%;
   padding: 15%;
   border-radius: 1.5rem;
+  background-color: lightskyblue;
+}
+
+.sideButtons button:hover{
   background-color: black;
+  color: white;
+  transition: 0.5s;
 }
 
 .sideButtons >p{

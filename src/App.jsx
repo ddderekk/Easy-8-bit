@@ -34,6 +34,13 @@ function GridButtonGroup({currentColor, numberOfPixels, pixelWidth, backgroundCo
     )
   }
 
+  function EraserButton({handleColorClick}) {
+    return (
+      <button className='colorButton eraserButton' style={{background:"transparent"}} onClick={handleColorClick}>
+      </button>
+    )
+
+  }
 
   
 
@@ -59,6 +66,7 @@ function ColorButtonGroup({setColorFunction}) {
   return (
     <div className='colorbuttonGroup'>
     {colorButtons}
+    <EraserButton handleColorClick={setColorFunction}/>
     </div>
   )
 }
