@@ -1,10 +1,17 @@
 import { useState } from 'react'
 import './App.css'
 
-function GridButton({currentColor, pixelWidth}){
+function GridButton({currentColor, pixelWidth, hideGrid}){
   const [pixelColor, setPixelColor] = useState("transparent")
   function handlePixelClick() {
     setPixelColor(currentColor)
+  }
+  if (hideGrid === true) {
+    return(
+      <>
+      <button style={{background:pixelColor, width:pixelWidth, border:"none"}} className={"gridButton"} onClick={handlePixelClick}></button>
+      </>
+    )
   }
   return(
     <>
@@ -13,10 +20,10 @@ function GridButton({currentColor, pixelWidth}){
   )
 }
 
-function GridButtonGroup({currentColor, numberOfPixels, pixelWidth, backgroundColor}) {
+function GridButtonGroup({currentColor, numberOfPixels, pixelWidth, backgroundColor, groupHideGrid}) {
   const gridButtons = []
   while (gridButtons.length < numberOfPixels) {
-    gridButtons.push(<GridButton currentColor={currentColor} pixelWidth={pixelWidth}/>)
+    gridButtons.push(<GridButton currentColor={currentColor} pixelWidth={pixelWidth} hideGrid={groupHideGrid}/>)
   }
   return (
     <div className='grid' style={{background:backgroundColor}}>
@@ -91,6 +98,18 @@ function FillBackgroundButton({backgroundFunction}) {
   )
 }
 
+function HideGridButton({hideGrid, handleGridHide}) {
+  return (
+    <div className="hideGridCheckbox">
+    <input type="checkbox" id="showBorder" checked={hideGrid} onChange={(e) => handleGridHide(e.target.checked)}>
+    </input>
+      <label for="showBorder" className="showGridLabel">Hide Grid</label>
+    </div>
+  )
+}
+
+
+
 function MoreButton({purpose, resolutionChangeFunction}){
   if (purpose === "morePixels"){
     return (
@@ -132,13 +151,17 @@ function App() {
   function hangleGridBackgroundChange() {
     setGridBackground(currentColor)
   }
+
+  const [hideGrid, setHideGrid] = useState(false)
+
   if (resolution === "MORE PIXELS") {
     return (
       <div className="pageContainer">
-      <GridButtonGroup currentColor={currentColor} numberOfPixels={1200} pixelWidth="2.44%" backgroundColor={gridBackground}/>
+      <GridButtonGroup currentColor={currentColor} numberOfPixels={1200} pixelWidth="2.44%" backgroundColor={gridBackground} groupHideGrid={hideGrid}/>
       <ColorButtonGroup setColorFunction={handleColorChange}/>
       <div className='sideButtons'>
       <ActiveColor currentColor={currentColor}/>
+      <HideGridButton hideGrid={hideGrid} handleGridHide={setHideGrid}/>
       <FillBackgroundButton backgroundFunction={hangleGridBackgroundChange}/>
       <MoreButton purpose="lessPixels" resolutionChangeFunction={handleResolutionChange}/>
       <ResetButton/>
@@ -149,10 +172,11 @@ function App() {
   else {
     return (
       <div className="pageContainer">
-      <GridButtonGroup currentColor={currentColor} numberOfPixels={600} pixelWidth="3.3%" backgroundColor={gridBackground}/>
+      <GridButtonGroup currentColor={currentColor} numberOfPixels={600} pixelWidth="3.3%" backgroundColor={gridBackground} groupHideGrid={hideGrid}/>
       <ColorButtonGroup setColorFunction={handleColorChange}/>
       <div className='sideButtons'>
       <ActiveColor currentColor={currentColor}/>
+      <HideGridButton hideGrid={hideGrid} handleGridHide={setHideGrid}/>
       <FillBackgroundButton backgroundFunction={hangleGridBackgroundChange}/>
       <MoreButton purpose="morePixels" resolutionChangeFunction={handleResolutionChange}/>
       <ResetButton/>
