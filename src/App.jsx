@@ -180,7 +180,7 @@ function App() {
   if (resolution === "MORE PIXELS") {
     return (
       <div className="pageContainer">
-      <GridButtonGroup currentColor={currentColor} numberOfPixels={1200} pixelWidth="2.44%" backgroundColor={gridBackground} groupHideGrid={hideGrid}/>
+      <GridButtonGroup currentColor={currentColor} numberOfPixels={1800} pixelWidth="2%" backgroundColor={gridBackground} groupHideGrid={hideGrid}/>
       <ColorButtonGroup setColorFunction={handleColorChange}/>
       <div className='sideButtons'>
       <ActiveColor currentColor={currentColor}/>
@@ -195,7 +195,7 @@ function App() {
   else {
     return (
       <div className="pageContainer">
-      <GridButtonGroup currentColor={currentColor} numberOfPixels={600} pixelWidth="3.3%" backgroundColor={gridBackground} groupHideGrid={hideGrid}/>
+      <GridButtonGroup currentColor={currentColor} numberOfPixels={660} pixelWidth="3.3%" backgroundColor={gridBackground} groupHideGrid={hideGrid}/>
       <ColorButtonGroup setColorFunction={handleColorChange}/>
       <div className='sideButtons'>
       <ActiveColor currentColor={currentColor}/>

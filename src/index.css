@@ -3,13 +3,14 @@ button{
 }
 
 .grid{
-  width: 70%;
+  width: 75%;
   display: flex;
   flex-wrap: wrap;
 }
 
 .gridButton{
   border:0.1px solid lightgray;
+  box-sizing: border-box;
   aspect-ratio: 1/1;
 }
 
@@ -33,7 +34,7 @@ button{
 
 .activeColor{
   border: 2px solid black;
-  height: 23%;
+  height: 17%;
 }
 
 .sideButtons{
