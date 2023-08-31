@@ -1,8 +1,15 @@
-# React + Vite
+# Easy 8-bit
+This app allows users to easily create pixel art. In the future, I want to implement an undo feature.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+It's currently hosted here: https://easy8bit.netlify.app/
 
-Currently, two official plugins are available:
+## Getting Started
+- Run the development server by using the following command:
+``
+npm run dev
+``
+- Open the localhost specified by the terminal
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Edit App.jsx to edit the page
+
+- This app uses React.js. Read more at React.dev
